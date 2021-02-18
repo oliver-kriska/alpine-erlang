@@ -1,4 +1,4 @@
-ARG ALPINE_VERSION=3.13.1
+ARG ALPINE_VERSION=3.13.2
 FROM alpine:${ALPINE_VERSION} AS build
 ARG ALPINE_MIN_VERSION=3.13
 ARG ERLANG_VERSION=23.2.5
@@ -103,12 +103,14 @@ RUN \
 ### Final Image
 
 FROM alpine:${ALPINE_VERSION}
+ARG ALPINE_MIN_VERSION=3.13
 
 ENV LANG=en_US.UTF-8 \
     HOME=/opt/app/ \
     # Set this so that CTRL+G works properly
     TERM=xterm \
-    PATH=/usr/local/bin:${PATH}
+    PATH=/usr/local/bin:${PATH} \
+    ALPINE_MIN_VERSION=${ALPINE_MIN_VERSION}
 
 # Copy Erlang/OTP installation
 COPY --from=build /tmp/usr/local /usr/local
