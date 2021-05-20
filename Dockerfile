@@ -1,13 +1,13 @@
-ARG ALPINE_VERSION=3.13.2
+ARG ALPINE_VERSION=3.13.5
 FROM alpine:${ALPINE_VERSION} AS build
 ARG ALPINE_MIN_VERSION=3.13
-ARG ERLANG_VERSION=23.3
+ARG ERLANG_VERSION=24.0
 
 # Important!  Update this no-op ENV variable when this Dockerfile
 # is updated with the current date. It will force refresh of all
 # of the base images and things like `apt-get update` won't be using
 # old cached versions when the Dockerfile is built.
-ENV REFRESHED_AT=2021-01-31 \
+ENV REFRESHED_AT=2021-05-20 \
     LANG=C.UTF-8 \
     HOME=/opt/app/ \
     TERM=xterm \
