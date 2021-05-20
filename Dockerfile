@@ -1,7 +1,7 @@
 ARG ALPINE_VERSION=3.13.5
 FROM alpine:${ALPINE_VERSION} AS build
 ARG ALPINE_MIN_VERSION=3.13
-ARG ERLANG_VERSION=24.0
+ARG ERLANG_VERSION=24.0.1
 
 # Important!  Update this no-op ENV variable when this Dockerfile
 # is updated with the current date. It will force refresh of all
